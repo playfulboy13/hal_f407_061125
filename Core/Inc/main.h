@@ -32,6 +32,22 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+#include "queue.h"
+#include "event_groups.h"
+
+#include "user_task.h"
+#include "adc.h"
+
+extern ADC_HandleTypeDef hadc1;
+extern RTC_HandleTypeDef hrtc;
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -1,0 +1,1 @@
+hal_f407_061125\startup_stm32f407xx.o: startup_stm32f407xx.s

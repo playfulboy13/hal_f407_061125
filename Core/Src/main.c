@@ -85,6 +85,10 @@ void StartDefaultTask(void const * argument);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	
+	SCB->CPACR|=(0xF<<20);
+	__DSB();
+	__ISB();
 
   /* USER CODE END 1 */
 
@@ -113,6 +117,14 @@ int main(void)
   MX_RTC_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+	
+	MX_USB_DEVICE_Init();
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t*)adc_value.adcValues,3);
+	
+	xTaskCreate(Task1,"Task1",256,NULL,5,NULL);
+	xTaskCreate(TaskAdc,"TaskAdc",256,NULL,5,NULL);
+	
+	vTaskStartScheduler();
 
   /* USER CODE END 2 */
 
